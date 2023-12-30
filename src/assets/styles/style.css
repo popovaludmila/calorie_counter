@@ -1,0 +1,122 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(90deg, #12041d, #230852);
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  height: 100vh;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  margin-left: 30px;
+}
+
+.show {
+  display: grid;
+  grid-template-columns: repeat(6, auto);
+  grid-template-rows: repeat(6, auto);
+  padding: 4px;
+  gap: 2px;
+  border-radius: 2px;
+  background-color: #a7f399;
+}
+
+.show >div {
+  --cell-size: min(4.5vh, 7.5vw);
+  height: var(--cell-size);
+  width: var(--cell-size);
+  border-radius: 0.3vh;
+  background-color: rgba(149, 214, 124, 0.89);
+}
+
+.board {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(10, auto);
+  grid-template-rows: repeat(20, auto);
+  padding: 4px;
+  gap: 2px;
+  border-radius: 2px;
+  background-color: #ba99f3;
+}
+
+.board > div:not(.status) {
+  --cell-size: min(4.5vh, 7.5vw);
+  height: var(--cell-size);
+  width: var(--cell-size);
+  border-radius: 0.3vh;
+  background-color: rgba(160, 124, 214, 0.89);
+}
+.board > div.help {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.board > div.I {
+  background-color: rgb(241, 79, 166);
+}
+
+.board > div.O {
+  background-color: rgb(251, 144, 105);
+}
+
+.board > div.L {
+  background-color: yellow;
+}
+
+.board > div.J {
+  background-color: aqua;
+}
+.board > div.S {
+  background-color: rgb(200, 249, 200);
+}
+
+.board > div.Z {
+  background-color: chartreuse;
+}
+.board > div.T {
+  background-color: deepskyblue;
+}
+
+.I,
+.O,
+.L,
+.J,
+.S,
+.Z,
+.T {
+  box-shadow: inset 2px 2px 2px rgba(255, 255, 255, 0.2),
+    inset -2px -2px 2px rgba(1, 8, 89, 0.2);
+}
+
+.status {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  font-size: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 20px 5px;
+  background-color: #fff;
+  text-align: center;
+  z-index: 3;
+}
+
+.hidden {
+  display: none;
+}
