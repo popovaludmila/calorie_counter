@@ -7,12 +7,11 @@ const tetris = new Tetris();
 
 const cells = document.querySelectorAll('.cell');
 const status = document.querySelector('.status');
-
-const showCells = document.querySelectorAll('.show div');
+const score = document.querySelector('.score_text');
 
 initKeyDown();
 
-moveDown();
+moveDown()
 
 function initKeyDown() {
     document.addEventListener('keydown', onKeyDown);
@@ -75,6 +74,7 @@ function dropDown() {
     if(tetris.isGameOver) {
         gameOver();
     }
+    score.textContent = tetris.calculateScore();
 };
 
 function startLoop() {
@@ -110,7 +110,7 @@ function drawPlayfield() {
 function drawFigure() {
 
     const name = tetris.figure.figureName;
-    // Размер фигурки матрицыf
+    // Размер фигурки матрицы
     const figureSizeMatrix = tetris.figure.matrix.length;
 
     for (let row = 0; row < figureSizeMatrix; row++) {

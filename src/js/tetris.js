@@ -5,6 +5,7 @@ export class Tetris {
         this.field; // пустое игровок поле
         this.figure;
         this.isGameOver = false;
+        this.score = 0;
         this.init();
     }
 
@@ -118,7 +119,12 @@ export class Tetris {
         }
 
         this.filledRows();
+        this.score += 10;
         this.generateFigure();
+    }
+
+    calculateScore() {
+        return this.score;
     }
 
     isOutsideOfTopGameBoard(row) {
@@ -127,7 +133,10 @@ export class Tetris {
 
     filledRows() {
         const filledLines = this.findFilledRows();
-        this.removeFilledRows(filledLines);
+        if (filledLines.length > 0) {
+            this.score += 100;
+        }
+        this.removeFilledRows(filledLines);    
     }
 
     removeFilledRows(filledRows) {

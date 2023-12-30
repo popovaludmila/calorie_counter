@@ -25,22 +25,33 @@ body {
   margin-left: 30px;
 }
 
-.show {
-  display: grid;
-  grid-template-columns: repeat(6, auto);
-  grid-template-rows: repeat(6, auto);
-  padding: 4px;
-  gap: 2px;
-  border-radius: 2px;
-  background-color: #a7f399;
+
+.score {
+  color: #fff;
+  font-size: 30px;
+  font-weight: 700;
+
+  margin: 15px 0;
 }
 
-.show >div {
-  --cell-size: min(4.5vh, 7.5vw);
-  height: var(--cell-size);
-  width: var(--cell-size);
-  border-radius: 0.3vh;
-  background-color: rgba(149, 214, 124, 0.89);
+.restart,
+.start {
+  padding: 10px;
+  min-width: 150px;
+  background-color: #e694f6;
+  color: #fff;
+  font-size: 30px;
+  font-weight: 700;
+  border: 0;
+  border-radius: 5px;
+  box-shadow: inset 2px 2px 2px rgba(255, 255, 255, 0.2),
+  inset -2px -2px 2px rgba(1, 8, 89, 0.2);
+  cursor: pointer;
+}
+
+.start {
+  margin-bottom: 10px;
+  background-color: #b6f694;
 }
 
 .board {
